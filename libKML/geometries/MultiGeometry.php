@@ -48,12 +48,9 @@ class MultiGeometry extends Geometry {
   }
   
   public function __toString() {
-    $parent_string = parent::__toString();
-    
     $output = array();
     $output[] = sprintf("<MultiGeometry%s>",
                         isset($this->id)?sprintf(" id=\"%s\"", $this->id):"");
-    $output[] = $parent_string;
     
     if (isset($this->geometries) && is_array($this->geometries)) {
       $geometries_strings = array();
@@ -61,7 +58,7 @@ class MultiGeometry extends Geometry {
         $geometries_strings[] = $geometry->__toString();
       }
       
-      $output[] = sprintf("\t<coordinates>%s</coordinates>", implode(" ", $geometries_strings));
+      $output[] = sprintf("\t%s", implode(" ", $geometries_strings));
     }
     
     $output[] = "</MultiGeometry>";
