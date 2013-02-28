@@ -1,5 +1,7 @@
 <?php
 
+namespace libKML;
+
 /**
  * 
  *
@@ -89,7 +91,7 @@ include_once('libKML/KMLBuilder.php');
 
 
 function parseKML($data) {
-  return libKML\buildKML(new \SimpleXMLElement($data));
+  return buildKML(new \SimpleXMLElement($data));
 }
 
 /**
@@ -107,7 +109,7 @@ class KML {
     $enc = mb_detect_encoding($text);
     $xml = mb_convert_encoding($text, 'UTF-8', $enc);
     
-    return libKML\buildKML(new \SimpleXMLElement($xml));
+    return buildKML(new \SimpleXMLElement($xml));
   }
   
   public function __construct($feature = null) {
@@ -134,7 +136,7 @@ class KML {
    */
   public function toWKT() {
     if (isset($this->feature)) {
-      if ($this->feature instanceof libKML\Container) {
+      if ($this->feature instanceof Container) {
         return sprintf("GEOMETRYCOLLECTION(%s)", $this->feature->toWKT());
       } else {
         return $this->feature->toWKT();
@@ -150,7 +152,7 @@ class KML {
   
   public function toWKT2d() {
     if (isset($this->feature)) {
-      if ($this->feature instanceof libKML\Container) {
+      if ($this->feature instanceof Container) {
         return sprintf("GEOMETRYCOLLECTION(%s)", $this->feature->toWKT2d());
       } else {
         return $this->feature->toWKT2d();
@@ -229,7 +231,7 @@ class KML {
   }
   
   public function setFeature($feature) {
-    if ($feature instanceof libKML\Feature) {
+    if ($feature instanceof Feature) {
       $this->feature = $feature;
     }
   }

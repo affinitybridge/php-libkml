@@ -629,7 +629,7 @@ namespace libKML;
   }
   
   function buildKML($kmlXMLObject) {
-    $kml = new \KML();
+    $kml = new KML();
     
     $featureXMLObject = $kmlXMLObject->children();
     $root_objects = array('Document', 'Placemark', 'Folder', 'NetworkLink');
