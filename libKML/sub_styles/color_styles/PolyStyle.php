@@ -19,11 +19,11 @@ class PolyStyle extends ColorStyle {
     $output[] = $parent_string;
     
     if (isset($this->fill)) {
-      $output[] = sprintf("\t<fill>%i</fill>", $this->fill);
+      $output[] = sprintf("\t<fill>%u</fill>", $this->fill);
     }
     
     if (isset($this->outline)) {
-      $output[] = sprintf("\t<width>%i</width>", $this->outline);
+      $output[] = sprintf("\t<width>%u</width>", $this->outline);
     }
     
     $output[] = "</PolyStyle>";

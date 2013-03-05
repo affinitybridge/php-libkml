@@ -83,7 +83,7 @@ class LinearRing extends Geometry {
                         isset($this->id)?sprintf(" id=\"%s\"", $this->id):"");
     
     if (isset($this->extrude)) {
-      $output[] = sprintf("\t<extrude>%i</extrude>", $this->extrude);
+      $output[] = sprintf("\t<extrude>%u</extrude>", $this->extrude);
     }
     
     if (isset($this->altitudeMode)) {
