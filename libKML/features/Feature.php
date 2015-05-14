@@ -69,7 +69,7 @@ abstract class Feature extends KMLObject {
     $output = array();
     
     if (isset($this->name)) {
-      $output[] = sprintf("\t<name>%s</name>", htmlentities($this->name));
+      $output[] = sprintf("\t<name><![CDATA[ %s ]]></name>", $this->name);
     }
     
     if (isset($this->visibility)) {
