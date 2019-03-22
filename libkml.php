@@ -91,7 +91,7 @@ include_once('libKML/KMLBuilder.php');
 
 
 function parseKML($data) {
-  return buildKML(new \SimpleXMLElement($data));
+  return buildKML(new \SimpleXMLElement($data, LIBXML_COMPACT | LIBXML_PARSEHUGE));
 }
 
 /**
